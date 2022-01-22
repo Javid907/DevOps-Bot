@@ -1,0 +1,13 @@
+pip~=21.2.4
+setuptools~=58.2.0
+pyyaml==5.4.1
+requests~=2.26.0
+GitPython
+flask~=2.0.1
+Flask
+waitress~=2.0.0
+django-request~=1.5.6
+ghlinguist
+changelog-cli
+flask_httpauth
+Werkzeug~=2.0.2

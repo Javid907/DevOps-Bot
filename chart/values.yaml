@@ -1,0 +1,38 @@
+myConfig:
+  token: your_bot_token
+  username: your_bot_username
+  hosting: github
+  host: gitlab.com
+  email: your_bot_email@example.com
+  changelog_begin: "BEGIN CHANGELOG"
+  changelog_end: "END CHANGELOG"
+  bearer_token: your_token
+  cliq: False
+  cliq_client_id: null
+  cliq_client_secret: null
+  cliq_refresh_token: null
+  cliq_channel_name: null
+
+app:
+  name: devops-bot
+  replicas: 1
+  port: 5000
+  protocol: TCP
+  image:
+    repository: javid907/devops-bot
+    tag: ""
+    pullPolicy: Always
+
+ingress:
+  enabled: true
+  class: nginx
+  domain: s-pro.io
+  sslRedirect: true
+  clusterIssuer: letsencrypt-prod
+  url: "devops-bot.example.com"
+  PathPrefix: "/"
+
+gcp:
+  ingress:
+    enabled: true
+    url: "devops-bot.example.com"

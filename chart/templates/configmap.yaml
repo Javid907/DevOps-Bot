@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  config.yaml: |-
+{{ toYaml .Values.myConfig| indent 12 }}
+---
+{{- if $.Values.gcp.ingress.enabled }}
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: {{ .Release.Name }}-https
+spec:
+  domains:
+    - {{ $.Values.gcp.ingress.url }}
+{{- end }}
